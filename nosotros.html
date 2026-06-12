@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicio Autorizado para Motos Italika y Bajaj en Iztacalco | Vekal Motors</title>
+    <meta name="description" content="Centro de Servicio Autorizado Italika y Bajaj en Iztacalco. Ofrecemos mantenimiento preventivo, diagnóstico y reparación con soporte multimarca Vekal Motors." />
+    <style>
+      :root {
+        --bg: #03070d;
+        --panel: #09111d;
+        --panel-2: #0c1726;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --text: #f4f8fc;
+        --muted: #9eb2c6;
+        --primary: #08a6e3;
+        --primary-2: #143a68;
+        --primary-3: #285aa1;
+        --radius: 22px;
+        --radius-sm: 16px;
+        --shadow: 0 18px 40px rgba(2, 12, 24, 0.45);
+        --container: 1200px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(8, 166, 227, 0.12), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(40, 90, 161, 0.08), transparent 35%),
+          var(--bg);
+        color: var(--text);
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+      .section { padding: 72px 0; }
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .section-title {
+        margin: 0 0 18px;
+        font-size: clamp(32px, 5vw, 70px);
+        line-height: 0.95;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .section-copy, .muted {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 17px;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(3, 7, 13, 0.84);
+        border-bottom: 1px solid rgba(8, 166, 227, 0.12);
+      }
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        height: 52px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      .brand-logo-italika {
+        max-height: 32px;
+        width: auto;
+        object-fit: contain;
+        border-left: 1px solid var(--stroke);
+        padding-left: 12px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .nav a { color: rgba(255,255,255,0.86); }
+      .nav a:hover, .nav a.active { color: var(--primary); }
+
+      /* Dropdown design */
+      .nav-item-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.2s ease;
+      }
+
+      .nav-item-dropdown:hover .dropdown-toggle,
+      .nav-item-dropdown.active .dropdown-toggle {
+        color: var(--primary);
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--panel-2);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        padding: 10px 0;
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        margin-top: 10px;
+      }
+
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent var(--panel-2) transparent;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text) !important;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: center;
+      }
+
+      .dropdown-menu a:hover,
+      .dropdown-menu a.active {
+        background: rgba(8, 166, 227, 0.1);
+        color: var(--primary) !important;
+      }
+
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .nav-mobile { display: none; }
+      .menu-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: white;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+        background: var(--primary);
+        color: #041018;
+        box-shadow: 0 12px 24px rgba(8, 166, 227, 0.25);
+      }
+
+      .hero-about {
+        position: relative;
+        overflow: hidden;
+        min-height: 680px;
+      }
+      .hero-about::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(2,8,15,0.95) 0%, rgba(2,8,15,0.88) 34%, rgba(2,8,15,0.56) 64%, rgba(2,8,15,0.28) 100%),
+          url("assets/nosotros-hero.avif") center/cover no-repeat;
+      }
+      .hero-about::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 45%, rgba(3,7,13,0.55) 100%);
+      }
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 28px;
+        align-items: end;
+        min-height: 598px;
+        padding: 56px 0 72px;
+      }
+      .hero-panel {
+        max-width: 560px;
+      }
+      .hero-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.88), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .hero-stat {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .stat-box {
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--radius-sm);
+        padding: 18px;
+        background: rgba(255,255,255,0.02);
+      }
+      .stat-box strong {
+        display: block;
+        font-size: 26px;
+        margin-bottom: 8px;
+      }
+      .stat-box span {
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+      .story-card, .values-card, .visit-card, .banner-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .story-card {
+        padding: 32px;
+        min-height: 320px;
+      }
+      .story-card.dark {
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.96), rgba(7, 10, 15, 0.98));
+      }
+      .story-card h2,
+      .values-card h2,
+      .visit-card h2 {
+        margin: 0 0 18px;
+        font-size: clamp(30px, 4vw, 52px);
+        line-height: 0.98;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .divider {
+        width: 46px;
+        height: 2px;
+        background: var(--primary);
+        margin: 14px 0 18px;
+      }
+
+      .values-card {
+        padding: 30px;
+      }
+      .values-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 24px;
+        align-items: center;
+      }
+      .values-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .value-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #dfe9f5;
+        font-weight: 700;
+      }
+      .value-pill::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--primary);
+        box-shadow: 0 0 0 6px rgba(8,166,227,0.09);
+      }
+      .values-image {
+        min-height: 360px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .values-image::before,
+      .banner-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+      }
+      .values-image::before {
+        background-image: linear-gradient(rgba(3,7,13,0.1), rgba(3,7,13,0.34)), url("assets/valores.JPG");
+      }
+
+      .banner-card {
+        position: relative;
+        min-height: 280px;
+        overflow: hidden;
+      }
+      .banner-card::before {
+        background-image: linear-gradient(rgba(3,7,13,0.4), rgba(3,7,13,0.82)), url("assets/cuidado-experto.jpg");
+      }
+      .banner-content {
+        position: relative;
+        z-index: 1;
+        padding: 40px;
+        max-width: 560px;
+      }
+
+      .visit-card {
+        padding: 30px;
+      }
+      .contact-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+      }
+      .strip-box {
+        min-height: 180px;
+        padding: 24px;
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+      .strip-box:last-child { border-right: 0; }
+      .strip-title {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 18px;
+      }
+      .strip-box p, .strip-box a {
+        margin: 0 0 10px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .cta-box {
+        background:
+          linear-gradient(180deg, rgba(8,166,227,0.14), rgba(8,166,227,0.04)),
+          linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .cta-box strong {
+        display: block;
+        font-size: 32px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 18px;
+      }
+
+      .site-footer {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 24px 0 36px;
+      }
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .footer-nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .story-grid,
+        .values-grid,
+        .contact-strip {
+          grid-template-columns: 1fr;
+        }
+        .hero-stat {
+          grid-template-columns: 1fr;
+        }
+        .contact-strip {
+          display: grid;
+        }
+        .strip-box { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .strip-box:last-child { border-bottom: 0; }
+      }
+
+      @media (max-width: 860px) {
+        .nav, .btn.desktop-only { display: none; }
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+        .nav-mobile.active {
+          display: grid;
+          gap: 8px;
+          padding-bottom: 18px;
+        }
+        .nav-mobile a {
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        /* Mobile dropdown grouping */
+        .mobile-dropdown-group {
+          display: grid;
+          gap: 6px;
+          padding: 4px 0;
+        }
+
+        .mobile-dropdown-label {
+          padding: 10px 16px 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+          display: grid;
+          gap: 6px;
+          padding-left: 16px;
+        }
+
+        .mobile-dropdown-links a {
+          border-left: 2px solid var(--stroke) !important;
+          border-radius: 0 14px 14px 0 !important;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container { width: min(var(--container), calc(100% - 20px)); }
+        .section { padding: 56px 0; }
+        .hero-about { min-height: auto; }
+        .hero-grid { min-height: auto; padding: 42px 0 52px; }
+        .brand-name { font-size: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-vekal.png" alt="Vekal Motors" class="brand-logo" />
+            <img src="assets/Italika-logo.png" alt="Servicio Autorizado Italika" class="brand-logo brand-logo-italika" />
+          </a>
+
+          <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a class="active" href="nosotros.html">Nosotros</a>
+            <div class="nav-item-dropdown">
+              <span class="nav-link dropdown-toggle">Servicios <span style="font-size: 8px;">▼</span></span>
+              <div class="dropdown-menu">
+                <a href="italika.html">Italika</a>
+                <a href="bajaj.html">Bajaj</a>
+                <a href="vekal.html">Vekal</a>
+              </div>
+            </div>
+            <a href="asegurados.html">Asegurados</a>
+            <a href="index.html#contacto">Contacto</a>
+          </nav>
+
+          <div>
+            <a class="btn desktop-only" href="index.html#contacto">Contáctanos</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+          </div>
+        </div>
+
+        <div class="nav-mobile" id="mobileNav">
+          <a href="index.html">Inicio</a>
+          <a class="active" href="nosotros.html">Nosotros</a>
+          <div class="mobile-dropdown-group">
+            <div class="mobile-dropdown-label">Servicios</div>
+            <div class="mobile-dropdown-links">
+              <a href="italika.html">Italika</a>
+              <a href="bajaj.html">Bajaj</a>
+              <a href="vekal.html">Vekal</a>
+            </div>
+          </div>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-about">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-panel">
+              <span class="section-kicker">Conoce más de</span>
+              <h1 class="section-title">Nosotros</h1>
+              <p class="section-copy">
+                En Vekal Motors operamos como centro de servicio autorizado para Italika y Bajaj, ofreciendo mantenimiento, diagnóstico y reparación profesional para motociclistas, flotillas y unidades aseguradas. Nuestro enfoque está en brindar atención clara, procesos ordenados y soluciones confiables para cada motocicleta.
+              </p>
+              <p class="section-copy">
+                Además de los servicios autorizados, Vekal Motors integra atención complementaria y multimarca para diagnósticos, reparaciones correctivas, refacciones y servicios especializados en Iztacalco, Ciudad de México.
+              </p>
+            </div>
+
+            <div class="hero-card">
+              <span class="section-kicker">Lo que nos define</span>
+              <p class="section-copy">
+                Somos un taller que trabaja con orden, transparencia y enfoque técnico. Buscamos que cada cliente encuentre atención profesional, claridad en el servicio y confianza en cada visita.
+              </p>
+              <div class="hero-stat">
+                <div class="stat-box">
+                  <strong>+3</strong>
+                  <span>Pilares</span>
+                </div>
+                <div class="stat-box">
+                  <strong>100%</strong>
+                  <span>Enfoque profesional</span>
+                </div>
+                <div class="stat-box">
+                  <strong>CDMX</strong>
+                  <span>Base de operación</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="story-grid">
+            <article class="story-card dark">
+              <span class="section-kicker">Nuestra esencia</span>
+              <h2>Misión</h2>
+              <div class="divider"></div>
+              <p class="section-copy">
+                Brindar a nuestros clientes un servicio de excelencia que permita su tranquilidad mediante la seguridad de un trabajo profesional y con ética.
+              </p>
+              <p class="section-copy">
+                Que nuestros clientes, proveedores y personal encuentren un ambiente humano que les brinde seguridad y confianza. Comprometidos con el medio ambiente, mediante un manejo responsable de residuos.
+              </p>
+            </article>
+
+            <article class="story-card">
+              <span class="section-kicker">Hacia dónde vamos</span>
+              <h2>Visión</h2>
+              <div class="divider"></div>
+              <p class="section-copy">
+                Ser reconocido como la mejor opción en mantenimiento para motos, que la calidad del trabajo realizado sea la referencia para clientes futuros, y que el factor diferenciador en el segmento sea la atención y el servicio personalizado brindado a nuestros clientes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <article class="values-card">
+            <div class="values-grid">
+              <div>
+                <span class="section-kicker">Lo que nos mueve</span>
+                <h2>Valores</h2>
+                <div class="divider"></div>
+                <div class="values-list">
+                  <div class="value-pill">Honestidad</div>
+                  <div class="value-pill">Responsabilidad</div>
+                  <div class="value-pill">Integridad</div>
+                  <div class="value-pill">Servicio</div>
+                  <div class="value-pill">Respeto</div>
+                </div>
+              </div>
+              <div class="values-image"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <article class="banner-card">
+            <div class="banner-content">
+              <span class="section-kicker">Vekal Motors</span>
+              <h2 class="section-title" style="font-size: clamp(30px, 4vw, 56px);">Cuidado experto para motocicletas.</h2>
+              <p class="section-copy">
+                Atención especializada, trato profesional y una experiencia pensada para que tu moto siga en marcha con seguridad y confianza.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="visit-card">
+            <span class="section-kicker">Contactanos</span>
+            <h2>Ven a visitarnos</h2>
+            <div class="contact-strip">
+              <div class="strip-box">
+                <div class="strip-title">Horario de atención</div>
+                <p><strong>Lun-Vie:</strong> 9:00 - 19:00</p>
+                <p><strong>Sáb:</strong> 9:00 - 14:00</p>
+                <p><strong>Dom:</strong> Cerrado</p>
+              </div>
+              <div class="strip-box">
+                <div class="strip-title">Contacto</div>
+                <p><strong>Teléfono:</strong> 55-3906-2978</p>
+                <p><strong>WhatsApp:</strong> 56-1632-6547</p>
+              </div>
+              <div class="strip-box">
+                <div class="strip-title">Ubicación</div>
+                <p>Calz. Sta. Anita 245, Nueva Sta Anita, Iztacalco, 08210 Ciudad de México, CDMX</p>
+              </div>
+              <div class="strip-box cta-box">
+                <strong>Cotiza aquí</strong>
+                <a class="btn" href="index.html#contacto">Llena el formato</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© 2026 Vekal Motors. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="italika.html">Italika</a>
+          <a href="bajaj.html">Bajaj</a>
+          <a href="vekal.html">Vekal</a>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+    </script>
+  </body>
+</html>

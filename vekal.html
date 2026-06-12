@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios Vekal para Motocicletas | Vekal Motors</title>
+    <meta name="description" content="Servicios complementarios Vekal para motocicletas: diagnóstico, reparación, refacciones, accesorios y atención multimarca." />
+    <style>
+      :root {
+        --bg: #03070d;
+        --panel: #09111d;
+        --panel-2: #0c1726;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --text: #f4f8fc;
+        --muted: #9eb2c6;
+        --primary: #08a6e3;
+        --primary-2: #143a68;
+        --primary-3: #285aa1;
+        --success: #7fe3ff;
+        --radius: 22px;
+        --radius-sm: 16px;
+        --shadow: 0 18px 40px rgba(2, 12, 24, 0.45);
+        --container: 1200px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(8,166,227,0.12), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(40,90,161,0.08), transparent 35%),
+          var(--bg);
+        color: var(--text);
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+      .section { padding: 72px 0; }
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .section-title {
+        margin: 0 0 18px;
+        font-size: clamp(32px, 5vw, 64px);
+        line-height: 0.95;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .section-copy, .muted {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 17px;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(3, 7, 13, 0.84);
+        border-bottom: 1px solid rgba(8, 166, 227, 0.12);
+      }
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+      .brand-logo {
+        height: 52px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+      .brand-logo-italika {
+        max-height: 32px;
+        width: auto;
+        object-fit: contain;
+        border-left: 1px solid var(--stroke);
+        padding-left: 12px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .nav a { color: rgba(255,255,255,0.86); }
+      .nav a:hover, .nav a.active { color: var(--primary); }
+
+      /* Dropdown design */
+      .nav-item-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.2s ease;
+      }
+      .nav-item-dropdown:hover .dropdown-toggle,
+      .nav-item-dropdown.active .dropdown-toggle {
+        color: var(--primary);
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--panel-2);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        padding: 10px 0;
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        margin-top: 10px;
+      }
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent var(--panel-2) transparent;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text) !important;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: center;
+      }
+      .dropdown-menu a:hover,
+      .dropdown-menu a.active {
+        background: rgba(8, 166, 227, 0.1);
+        color: var(--primary) !important;
+      }
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .nav-mobile { display: none; }
+      .menu-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: white;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+        background: var(--primary);
+        color: #041018;
+        box-shadow: 0 12px 24px rgba(8, 166, 227, 0.25);
+      }
+
+      .hero-services {
+        padding: 56px 0 34px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero-image {
+        min-height: 320px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(3,7,13,0.18), rgba(3,7,13,0.5)),
+          url("assets/servicios--hero.jpg") center/cover no-repeat;
+      }
+      .hero-copy-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+      .hero-copy-card .section-title {
+        margin-bottom: 14px;
+      }
+      .hero-copy-card .btn {
+        margin-top: 18px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .service-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .service-card-header {
+        padding: 22px 24px 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .service-card-header h3 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.15;
+        letter-spacing: 0.03em;
+        font-weight: 800;
+      }
+      .service-card-body {
+        padding: 22px 24px 26px;
+      }
+      .service-photo {
+        height: 290px;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 18px;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+      .service-photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: saturate(0.95);
+      }
+      .service-card:nth-child(1) .service-photo::before {
+        background-image: url("assets/servicio-500.avif");
+      }
+      .service-card:nth-child(2) .service-photo::before {
+        background-image: url("assets/servicio-6000.avif");
+      }
+      .service-card:nth-child(3) .service-photo::before {
+        background-image: url("assets/servicio-12000.avif");
+      }
+      .service-card:nth-child(4) .service-photo::before {
+        background-image: url("assets/servicio-18000.avif");
+      }
+      .service-card:nth-child(5) .service-photo::before {
+        background-image: url("assets/servicio-24000.avif");
+      }
+      .service-card:nth-child(6) .service-photo::before {
+        background-image: url("assets/servicio-30000.avif");
+      }
+      .service-card:nth-child(7) .service-photo::before {
+        background-image: url("assets/servicios-correctivos.avif");
+      }
+      .service-card:nth-child(8) .service-photo::before {
+        background-image: url("assets/servicios-adicionales.avif");
+      }
+      .service-list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+      .service-list li + li {
+        margin-top: 6px;
+      }
+
+      .contact-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 30px;
+      }
+      .contact-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255,255,255,0.06);
+        margin-top: 18px;
+      }
+      .strip-box {
+        min-height: 180px;
+        padding: 24px;
+        background: rgba(255,255,255,0.02);
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+      .strip-box:last-child { border-right: 0; }
+      .strip-title {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 18px;
+      }
+      .strip-box p, .strip-box a {
+        margin: 0 0 10px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .cta-box {
+        background:
+          linear-gradient(180deg, rgba(8,166,227,0.14), rgba(8,166,227,0.04)),
+          rgba(255,255,255,0.02);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .cta-box strong {
+        display: block;
+        font-size: 32px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 18px;
+      }
+
+      .site-footer {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 24px 0 36px;
+      }
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .footer-nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .services-grid,
+        .contact-strip {
+          grid-template-columns: 1fr;
+        }
+        .contact-strip {
+          display: grid;
+        }
+        .strip-box { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .strip-box:last-child { border-bottom: 0; }
+      }
+
+      @media (max-width: 860px) {
+        .nav, .btn.desktop-only { display: none; }
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+        .nav-mobile.active {
+          display: grid;
+          gap: 8px;
+          padding-bottom: 18px;
+        }
+        .nav-mobile a {
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        /* Mobile dropdown grouping */
+        .mobile-dropdown-group {
+          display: grid;
+          gap: 6px;
+          padding: 4px 0;
+        }
+
+        .mobile-dropdown-label {
+          padding: 10px 16px 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+          display: grid;
+          gap: 6px;
+          padding-left: 16px;
+        }
+
+        .mobile-dropdown-links a {
+          border-left: 2px solid var(--stroke) !important;
+          border-radius: 0 14px 14px 0 !important;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container { width: min(var(--container), calc(100% - 20px)); }
+        .section { padding: 56px 0; }
+        .hero-services { padding: 34px 0 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-vekal.png" alt="Vekal Motors" class="brand-logo" />
+            <img src="assets/Italika-logo.png" alt="Servicio Autorizado Italika" class="brand-logo brand-logo-italika" />
+          </a>
+
+          <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <div class="nav-item-dropdown active">
+              <span class="nav-link dropdown-toggle">Servicios <span style="font-size: 8px;">▼</span></span>
+              <div class="dropdown-menu">
+                <a href="italika.html">Italika</a>
+                <a href="bajaj.html">Bajaj</a>
+                <a class="active" href="vekal.html">Vekal</a>
+              </div>
+            </div>
+            <a href="asegurados.html">Asegurados</a>
+            <a href="index.html#contacto">Contacto</a>
+          </nav>
+
+          <div>
+            <a class="btn desktop-only" href="index.html#contacto">Contáctanos</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+          </div>
+        </div>
+
+        <div class="nav-mobile" id="mobileNav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <div class="mobile-dropdown-group">
+            <div class="mobile-dropdown-label">Servicios</div>
+            <div class="mobile-dropdown-links">
+              <a href="italika.html">Italika</a>
+              <a href="bajaj.html">Bajaj</a>
+              <a class="active" href="vekal.html">Vekal</a>
+            </div>
+          </div>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-services">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-image"></div>
+            <div class="hero-copy-card">
+              <span class="section-kicker">Catálogo de servicios</span>
+              <h1 class="section-title">Servicios Vekal</h1>
+              <p class="section-copy">
+                Además de los servicios oficiales autorizados para Italika y Bajaj, en Vekal Motors operamos como la estructura complementaria para diagnósticos especializados, reparaciones correctivas multimarca, refacciones y accesorios.
+              </p>
+              <a class="btn" href="index.html#contacto">Contacto</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 20px;">
+        <div class="container">
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 500 km o 1 mes</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Lavado, tensión y lubricación de cadena</li>
+                  <li>Ajuste de tornillería y puntos móviles</li>
+                  <li>Ajuste de freno</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 6,000 km o 6 meses</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Limpieza o cambio de filtro de aire</li>
+                  <li>Inspección de freno de zapata</li>
+                  <li>Lavado, tensión y lubricación de cadena</li>
+                  <li>Ajuste de frenos, embrague y puntos móviles</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 12,000 km o 12 meses</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Cambio de bujía</li>
+                  <li>Reemplazo del filtro de gasolina</li>
+                  <li>Lavado, tensión y lubricación de cadena</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 18,000 km o 18 meses</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Limpieza y/o barreno de caja</li>
+                  <li>Inspección de sistema de frenos</li>
+                  <li>Ajuste de frenos, embrague y puntos móviles</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 24,000 km o 24 meses</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Cambio de bujía</li>
+                  <li>Lavado, tensión y lubricación de cadena</li>
+                  <li>Inspección de peso de desgaste natural</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicio Preventivo 30,000 km o 30 meses</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Cambio de aceite de motor</li>
+                  <li>Reemplazo del filtro de aceite</li>
+                  <li>Limpieza del cedazo de aceite</li>
+                  <li>Limpieza y/o barreno de caja</li>
+                  <li>Inspección de freno de zapata</li>
+                  <li>Ajuste de frenos, embrague y puntos móviles</li>
+                  <li>Lavado de motocicleta</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicios Correctivos</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Ajuste completo de motor</li>
+                  <li>Media ajuste de motor</li>
+                  <li>Cambio de clutch y aceite de barras</li>
+                  <li>Cambio de balatas</li>
+                  <li>Cambio de llantas</li>
+                  <li>Cambio de chicote</li>
+                  <li>Reparación de sistema eléctrico</li>
+                  <li>Cambio de bujes y rodamientos</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-header"><h3>Servicios Adicionales · Accesorios</h3></div>
+              <div class="service-card-body">
+                <div class="service-photo"></div>
+                <ul class="service-list">
+                  <li>Alarma</li>
+                  <li>Módulo</li>
+                  <li>Encendido de niebla</li>
+                  <li>Instalación de faros</li>
+                  <li>Protectores de motor</li>
+                  <li>Instalación de baúles</li>
+                  <li>Alzadores de manubrio</li>
+                  <li>Aplicación de ceramic y estética</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="contact-card">
+            <span class="section-kicker">Contactanos</span>
+            <h2 class="section-title" style="font-size: clamp(30px, 4vw, 54px);">Ven a visitarnos</h2>
+            <div class="contact-strip">
+              <div class="strip-box">
+                <div class="strip-title">Horario de atención</div>
+                <p><strong>Lun-Vie:</strong> 9:00 - 19:00</p>
+                <p><strong>Sáb:</strong> 9:00 - 14:00</p>
+                <p><strong>Dom:</strong> Cerrado</p>
+              </div>
+              <div class="strip-box">
+                <div class="strip-title">Contacto</div>
+                <p><strong>Teléfono:</strong> 55-3906-2978</p>
+                <p><strong>WhatsApp:</strong> 56-1632-6547</p>
+              </div>
+              <div class="strip-box">
+                <div class="strip-title">Ubicación</div>
+                <p>Calz. Sta. Anita 245, Nueva Sta Anita, Iztacalco, 08210 Ciudad de México, CDMX</p>
+              </div>
+              <div class="strip-box cta-box">
+                <strong>Cotiza aquí</strong>
+                <a class="btn" href="index.html#contacto">Llena el formato</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© 2026 Vekal Motors. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="italika.html">Italika</a>
+          <a href="bajaj.html">Bajaj</a>
+          <a href="vekal.html">Vekal</a>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+    </script>
+  </body>
+</html>

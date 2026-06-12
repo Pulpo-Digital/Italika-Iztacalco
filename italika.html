@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicio Autorizado Italika en Iztacalco | Vekal Motors</title>
+    <meta name="description" content="Centro de Servicio Autorizado Italika en Iztacalco. Mantenimiento preventivo, diagnóstico y atención profesional para motocicletas Italika." />
+    <style>
+      :root {
+        --bg: #03070d;
+        --panel: #09111d;
+        --panel-2: #0c1726;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --text: #f4f8fc;
+        --muted: #9eb2c6;
+        --primary: #08a6e3;
+        --primary-2: #143a68;
+        --primary-3: #285aa1;
+        --success: #7fe3ff;
+        --radius: 22px;
+        --radius-sm: 16px;
+        --shadow: 0 18px 40px rgba(2, 12, 24, 0.45);
+        --container: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(8, 166, 227, 0.12), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(40, 90, 161, 0.1), transparent 35%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-title {
+        margin: 0 0 16px;
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 0.98;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .section-copy,
+      .muted {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      /* Site Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(3, 7, 13, 0.84);
+        border-bottom: 1px solid rgba(8, 166, 227, 0.12);
+      }
+
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        height: 52px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      .brand-logo-italika {
+        max-height: 32px;
+        width: auto;
+        object-fit: contain;
+        border-left: 1px solid var(--stroke);
+        padding-left: 12px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .nav a {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        color: var(--primary);
+      }
+
+      /* Dropdown design */
+      .nav-item-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.2s ease;
+      }
+
+      .nav-item-dropdown:hover .dropdown-toggle,
+      .nav-item-dropdown.active .dropdown-toggle {
+        color: var(--primary);
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--panel-2);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        padding: 10px 0;
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        margin-top: 10px;
+      }
+
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent var(--panel-2) transparent;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text) !important;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: center;
+      }
+
+      .dropdown-menu a:hover,
+      .dropdown-menu a.active {
+        background: rgba(8, 166, 227, 0.1);
+        color: var(--primary) !important;
+      }
+
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .btn,
+      button {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #041018;
+        box-shadow: 0 12px 24px rgba(8, 166, 227, 0.25);
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        border-color: rgba(8, 166, 227, 0.4);
+        color: var(--success);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-mobile {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: white;
+      }
+
+      /* Hero Services */
+      .hero-services {
+        padding: 56px 0 34px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .hero-image {
+        min-height: 360px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(3, 7, 13, 0.18), rgba(3, 7, 13, 0.5)),
+          url("assets/servicios--hero.jpg") center/cover no-repeat;
+      }
+
+      .hero-copy-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy-card .section-title {
+        margin-bottom: 14px;
+      }
+
+      .hero-copy-card .btn {
+        margin-top: 18px;
+      }
+
+      /* Card Grid styling */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 28px;
+      }
+
+      .card,
+      .info-card,
+      .faq-item,
+      .warranty-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .card {
+        padding: 26px;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* Table Styles */
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 28px;
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .pricing-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 13px;
+      }
+
+      .pricing-table th,
+      .pricing-table td {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--stroke);
+        white-space: nowrap;
+      }
+
+      .pricing-table th {
+        background: var(--panel-2);
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 800;
+      }
+
+      .pricing-table td strong {
+        color: var(--success);
+      }
+
+      .pricing-table tr:hover td {
+        background: rgba(255, 255, 255, 0.01);
+      }
+
+      .table-note {
+        margin-top: 16px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* Warranty and Conditions layout */
+      .split-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .warranty-card {
+        padding: 32px;
+      }
+
+      .warranty-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .warranty-item {
+        display: flex;
+        gap: 12px;
+        align-items: start;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .warranty-item::before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      /* FAQ Accordion */
+      .faq-panel {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 22px;
+        color: white;
+        background: transparent;
+      }
+
+      .faq-question span {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .faq-icon {
+        color: var(--primary);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+        padding: 0 22px;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 220px;
+        padding-bottom: 22px;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      /* Site Footer */
+      .site-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 24px 0 36px;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      /* Responsive rules */
+      @media (max-width: 1100px) {
+        .hero-grid,
+        .split-grid {
+          grid-template-columns: 1fr;
+        }
+        .card-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav,
+        .header-actions .btn {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+
+        .nav-mobile {
+          display: none;
+          padding: 0 0 18px;
+        }
+
+        .nav-mobile.active {
+          display: grid;
+          gap: 8px;
+        }
+
+        .nav-mobile a {
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.03);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        /* Mobile dropdown grouping */
+        .mobile-dropdown-group {
+          display: grid;
+          gap: 6px;
+          padding: 4px 0;
+        }
+
+        .mobile-dropdown-label {
+          padding: 10px 16px 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+          display: grid;
+          gap: 6px;
+          padding-left: 16px;
+        }
+
+        .mobile-dropdown-links a {
+          border-left: 2px solid var(--stroke) !important;
+          border-radius: 0 14px 14px 0 !important;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .section {
+          padding: 56px 0;
+        }
+
+        .container {
+          width: min(var(--container), calc(100% - 20px));
+        }
+
+        .hero-services {
+          padding: 34px 0 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-vekal.png" alt="Vekal Motors" class="brand-logo" />
+            <img src="assets/Italika-logo.png" alt="Servicio Autorizado Italika" class="brand-logo brand-logo-italika" />
+          </a>
+
+          <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <div class="nav-item-dropdown active">
+              <span class="nav-link dropdown-toggle">Servicios <span style="font-size: 8px;">▼</span></span>
+              <div class="dropdown-menu">
+                <a class="active" href="italika.html">Italika</a>
+                <a href="bajaj.html">Bajaj</a>
+                <a href="vekal.html">Vekal</a>
+              </div>
+            </div>
+            <a href="asegurados.html">Asegurados</a>
+            <a href="index.html#contacto">Contacto</a>
+          </nav>
+
+          <div class="header-actions">
+            <a class="btn btn-primary" href="index.html#contacto">Contáctanos</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+          </div>
+        </div>
+
+        <div class="nav-mobile" id="mobileNav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <div class="mobile-dropdown-group">
+            <div class="mobile-dropdown-label">Servicios</div>
+            <div class="mobile-dropdown-links">
+              <a class="active" href="italika.html">Italika</a>
+              <a href="bajaj.html">Bajaj</a>
+              <a href="vekal.html">Vekal</a>
+            </div>
+          </div>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-services">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-image"></div>
+            <div class="hero-copy-card">
+              <span class="section-kicker">Centro de Servicio Autorizado</span>
+              <h1 class="section-title">Italika Iztacalco</h1>
+              <p class="section-copy">
+                Como Centro de Servicio Autorizado (CESIT), realizamos el mantenimiento preventivo, diagnóstico y reparaciones necesarias para tu motocicleta Italika con componentes genuinos y personal capacitado directamente por la planta.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="index.html#contacto">Agendar Servicio</a>
+                <a class="btn btn-secondary" href="https://wa.me/525616326547" target="_blank">Escríbenos por WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 20px;">
+        <div class="container">
+          <span class="section-kicker">Mantenimiento y precios oficiales</span>
+          <h2 class="section-title">Tabla de Mantenimiento Preventivo</h2>
+          <p class="section-copy">
+            Los servicios preventivos son obligatorios y deben realizarse en los intervalos especificados para conservar la garantía de fábrica. Consulta a continuación la tabla de precios autorizados.
+          </p>
+
+          <div class="table-responsive-wrapper">
+            <table class="pricing-table">
+              <thead>
+                <tr>
+                  <th>Intervalo / Período</th>
+                  <th>Motonetas / Y-Cross<br>125–175 cc</th>
+                  <th>Motocicletas<br>110–150 cc</th>
+                  <th>Motocicletas<br>170–250 cc / DM300</th>
+                  <th>ATV / Cuatrimotos<br>150–200 cc</th>
+                  <th>ATV / Cuatrimotos<br>250–300 cc</th>
+                  <th>Vort-X / Blackbird<br>280 Z</th>
+                  <th>Firebird 300</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>500 km / 1 mes</strong></td>
+                  <td>$635</td>
+                  <td>$650</td>
+                  <td>$695</td>
+                  <td>$660</td>
+                  <td>$800</td>
+                  <td>$880</td>
+                  <td>$1,040</td>
+                </tr>
+                <tr>
+                  <td><strong>6,000 km / 6 meses</strong></td>
+                  <td>$635</td>
+                  <td>$650</td>
+                  <td>$695</td>
+                  <td>$660</td>
+                  <td>$800</td>
+                  <td>$880</td>
+                  <td>$1,040</td>
+                </tr>
+                <tr>
+                  <td><strong>12,000 km / 12 meses</strong></td>
+                  <td>$705</td>
+                  <td>$750</td>
+                  <td>$740</td>
+                  <td>$730</td>
+                  <td>$840</td>
+                  <td>$1,005</td>
+                  <td>$1,095</td>
+                </tr>
+                <tr>
+                  <td><strong>18,000 km / 18 meses</strong></td>
+                  <td>$635</td>
+                  <td>$650</td>
+                  <td>$695</td>
+                  <td>$660</td>
+                  <td>$800</td>
+                  <td>$880</td>
+                  <td>$1,040</td>
+                </tr>
+                <tr>
+                  <td><strong>24,000 km / 24 meses</strong></td>
+                  <td>$705</td>
+                  <td>$750</td>
+                  <td>$740</td>
+                  <td>$730</td>
+                  <td>$840</td>
+                  <td>$1,005</td>
+                  <td>$1,095</td>
+                </tr>
+                <tr>
+                  <td><strong>30,000 km / 30 meses</strong></td>
+                  <td>$635</td>
+                  <td>$650</td>
+                  <td>$695</td>
+                  <td>$660</td>
+                  <td>$800</td>
+                  <td>$880</td>
+                  <td>$1,040</td>
+                </tr>
+                <tr>
+                  <td><strong>36,000 km / 36 meses</strong></td>
+                  <td>$705</td>
+                  <td>$750</td>
+                  <td>$740</td>
+                  <td>$730</td>
+                  <td>$840</td>
+                  <td>$1,005</td>
+                  <td>$1,095</td>
+                </tr>
+                <tr>
+                  <td><strong>42,000 km / 42 meses</strong></td>
+                  <td>$635</td>
+                  <td>$650</td>
+                  <td>$695</td>
+                  <td>$660</td>
+                  <td>$800</td>
+                  <td>$880</td>
+                  <td>$1,040</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-note">
+            <p><strong>Nota oficial:</strong> Precios vigentes a partir del 01 de marzo al 31 de diciembre del 2026. Los precios pueden cambiar sin previo aviso, incluyen I.V.A., se encuentran en Moneda Nacional y aplican para todas las formas de pago.</p>
+            <p>• En todos los servicios se utiliza únicamente aceite para motor de 4 tiempos SAE 20W-50 SL certificado.</p>
+            <p>• Para motocicletas con póliza de servicios de 3,000 km, el costo de servicio corresponde al precio publicado menos $70 pesos (y el servicio se realiza con aceite ITALIKA SL).</p>
+            <p>• El servicio incluye cambio de filtro de aceite para los modelos VORT-X200, V200, VX250, VORT-X 250, VORT-X 300 y BLACKBIRD.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <div class="split-grid">
+            <article class="warranty-card">
+              <span class="section-kicker">Conserva tu Garantía</span>
+              <h2 class="section-title" style="font-size: clamp(24px, 3vw, 36px);">Garantía de hasta 4 años o 40,000 km</h2>
+              <p class="section-copy">
+                Para mantener la validez de tu garantía, es indispensable cumplir con los cuidados indicados en tu manual de usuario y realizar los mantenimientos preventivos a tiempo.
+              </p>
+              <div class="warranty-list">
+                <div class="warranty-item">Realiza los servicios preventivos conforme al kilometraje y tiempo indicados en cada periodo.</div>
+                <div class="warranty-item">Tolerancia para servicios: 30 días o 100 km para el primer servicio, y 30 días o 300 km para los posteriores.</div>
+                <div class="warranty-item">No realices reparaciones, servicios ni adaptaciones fuera de un Centro de Servicio Autorizado Italika.</div>
+                <div class="warranty-item">La garantía aplica siempre por defecto de fabricación, sujeta a diagnóstico técnico.</div>
+              </div>
+            </article>
+
+            <article class="warranty-card" style="border-color: rgba(8, 166, 227, 0.22);">
+              <span class="section-kicker">Términos Importantes</span>
+              <h2 class="section-title" style="font-size: clamp(24px, 3vw, 36px);">Notas y Exclusiones</h2>
+              <p class="section-copy">
+                La garantía oficial cubre defectos de fábrica bajo el diagnóstico de nuestro taller. Quedan excluidos del alcance de la garantía los siguientes elementos:
+              </p>
+              <div class="warranty-list" style="font-size: 14px; line-height: 1.5; color: var(--muted);">
+                <div>• <strong>Desgaste natural y consumibles:</strong> Filtros (aire, aceite, gasolina y cedazo), bujías, balatas, zapatas, discos de clutch, pastas, resortes, cadenas, ruedas dentadas, bandas de transmisión, focos (bulbos/LEDs), llantas y cámaras, líquidos de freno y aceites.</div>
+                <div>• <strong>Modificaciones eléctricas:</strong> Modificaciones o adaptaciones ajenas a la instalación original anularán la garantía del sistema eléctrico.</div>
+                <div>• <strong>Daños externos:</strong> No se cubrirán daños causados por accidentes, choques, negligencia o malos hábitos de conducción.</div>
+                <div>• <strong>Repuestos eléctricos / no eléctricos:</strong> Garantía de 1 mes en repuestos no eléctricos instalados y 3 meses en repuestos eléctricos instalados.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <span class="section-kicker">Resolvemos tus dudas</span>
+          <h2 class="section-title">Preguntas Frecuentes - Italika</h2>
+          <div class="faq-panel">
+            <article class="faq-item active">
+              <button class="faq-question">
+                <span>¿Qué pasa si me paso un poco del kilometraje indicado?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>Existe una tolerancia oficial. Para el primer servicio es de 30 días o 100 km. Para los siguientes servicios, la tolerancia es de 30 días o 300 km. Pasarse de este margen invalida la garantía de fábrica.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>¿Cuánto dura la garantía de mi motocicleta Italika?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>Depende del modelo de tu moto (puede ser de hasta 2 años, 3 años o 4 años, o un límite de kilómetros como 40,000 km, lo que ocurra primero). Para modelos sin odómetro, la garantía oficial es de 6 meses a partir de la fecha de venta.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>¿Qué incluye cada servicio preventivo?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>Incluye cambio de aceite, inspección de puntos de seguridad (frenos, llantas, suspensión, tornillería), ajuste de tensión y lubricación de cadena, limpieza de cedazos y ajuste de frenos. En modelos específicos incluye el cambio de filtro de aceite oficial.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container" style="text-align: center;">
+          <article class="warranty-card" style="max-width: 680px; margin: 0 auto; padding: 40px 20px;">
+            <span class="section-kicker">Agenda hoy mismo</span>
+            <h2 class="section-title">Mantén tu Italika al 100%</h2>
+            <p class="section-copy" style="margin-bottom: 24px;">
+              Agenda tu cita en nuestro Centro de Servicio Autorizado en Iztacalco de manera rápida y sin complicaciones.
+            </p>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+              <a class="btn btn-primary" href="index.html#contacto">Programar Cita</a>
+              <a class="btn btn-secondary" href="https://wa.me/525616326547" target="_blank">WhatsApp Directo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© 2026 Vekal Motors. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="italika.html">Italika</a>
+          <a href="bajaj.html">Bajaj</a>
+          <a href="vekal.html">Vekal</a>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-question');
+        button.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach((faq) => faq.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atención para Motocicletas Aseguradas | Vekal Motors</title>
+    <meta name="description" content="Atención para motocicletas aseguradas en Iztacalco. Revisión, diagnóstico y seguimiento según el proceso de cada aseguradora." />
+    <style>
+      :root {
+        --bg: #03070d;
+        --panel: #09111d;
+        --panel-2: #0c1726;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --text: #f4f8fc;
+        --muted: #9eb2c6;
+        --primary: #08a6e3;
+        --primary-2: #143a68;
+        --primary-3: #285aa1;
+        --success: #7fe3ff;
+        --radius: 22px;
+        --radius-sm: 16px;
+        --shadow: 0 18px 40px rgba(2, 12, 24, 0.45);
+        --container: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(8, 166, 227, 0.12), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(40, 90, 161, 0.1), transparent 35%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-title {
+        margin: 0 0 16px;
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 0.98;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .section-copy,
+      .muted {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      /* Site Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(3, 7, 13, 0.84);
+        border-bottom: 1px solid rgba(8, 166, 227, 0.12);
+      }
+
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        height: 52px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      .brand-logo-italika {
+        max-height: 32px;
+        width: auto;
+        object-fit: contain;
+        border-left: 1px solid var(--stroke);
+        padding-left: 12px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .nav a {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        color: var(--primary);
+      }
+
+      /* Dropdown design */
+      .nav-item-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.2s ease;
+      }
+
+      .nav-item-dropdown:hover .dropdown-toggle,
+      .nav-item-dropdown.active .dropdown-toggle {
+        color: var(--primary);
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--panel-2);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        padding: 10px 0;
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        margin-top: 10px;
+      }
+
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent var(--panel-2) transparent;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text) !important;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: center;
+      }
+
+      .dropdown-menu a:hover,
+      .dropdown-menu a.active {
+        background: rgba(8, 166, 227, 0.1);
+        color: var(--primary) !important;
+      }
+
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .btn,
+      button {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #041018;
+        box-shadow: 0 12px 24px rgba(8, 166, 227, 0.25);
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        border-color: rgba(8, 166, 227, 0.4);
+        color: var(--success);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-mobile {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: white;
+      }
+
+      /* Hero Services */
+      .hero-services {
+        padding: 56px 0 34px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .hero-image {
+        min-height: 360px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(3, 7, 13, 0.18), rgba(3, 7, 13, 0.5)),
+          url("assets/nosotros-hero.avif") center/cover no-repeat;
+      }
+
+      .hero-copy-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy-card .section-title {
+        margin-bottom: 14px;
+      }
+
+      .hero-copy-card .btn {
+        margin-top: 18px;
+      }
+
+      /* Split Layout */
+      .split-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .card,
+      .info-card,
+      .faq-item,
+      .warranty-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .warranty-card {
+        padding: 32px;
+      }
+
+      .steps-vertical {
+        display: grid;
+        gap: 24px;
+        margin-top: 24px;
+      }
+
+      .step-row {
+        display: flex;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .step-num {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(8, 166, 227, 0.12);
+        border: 1px solid rgba(8, 166, 227, 0.22);
+        color: var(--primary);
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+        flex-shrink: 0;
+        font-size: 16px;
+      }
+
+      .step-content h3 {
+        margin: 0 0 6px;
+        font-size: 17px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .step-content p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .doc-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .doc-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .doc-item::before {
+        content: "■";
+        color: var(--primary);
+        font-size: 8px;
+        flex-shrink: 0;
+      }
+
+      /* FAQ Accordion */
+      .faq-panel {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 22px;
+        color: white;
+        background: transparent;
+      }
+
+      .faq-question span {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .faq-icon {
+        color: var(--primary);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+        padding: 0 22px;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 220px;
+        padding-bottom: 22px;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      /* Site Footer */
+      .site-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 24px 0 36px;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      /* Responsive rules */
+      @media (max-width: 1100px) {
+        .hero-grid,
+        .split-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav,
+        .header-actions .btn {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+
+        .nav-mobile {
+          display: none;
+          padding: 0 0 18px;
+        }
+
+        .nav-mobile.active {
+          display: grid;
+          gap: 8px;
+        }
+
+        .nav-mobile a {
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.03);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        /* Mobile dropdown grouping */
+        .mobile-dropdown-group {
+          display: grid;
+          gap: 6px;
+          padding: 4px 0;
+        }
+
+        .mobile-dropdown-label {
+          padding: 10px 16px 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+          display: grid;
+          gap: 6px;
+          padding-left: 16px;
+        }
+
+        .mobile-dropdown-links a {
+          border-left: 2px solid var(--stroke) !important;
+          border-radius: 0 14px 14px 0 !important;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .section {
+          padding: 56px 0;
+        }
+
+        .container {
+          width: min(var(--container), calc(100% - 20px));
+        }
+
+        .hero-services {
+          padding: 34px 0 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-vekal.png" alt="Vekal Motors" class="brand-logo" />
+            <img src="assets/Italika-logo.png" alt="Servicio Autorizado Italika" class="brand-logo brand-logo-italika" />
+          </a>
+
+          <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <div class="nav-item-dropdown">
+              <span class="nav-link dropdown-toggle">Servicios <span style="font-size: 8px;">▼</span></span>
+              <div class="dropdown-menu">
+                <a href="italika.html">Italika</a>
+                <a href="bajaj.html">Bajaj</a>
+                <a href="vekal.html">Vekal</a>
+              </div>
+            </div>
+            <a class="active" href="asegurados.html">Asegurados</a>
+            <a href="index.html#contacto">Contacto</a>
+          </nav>
+
+          <div class="header-actions">
+            <a class="btn btn-primary" href="index.html#contacto">Contáctanos</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+          </div>
+        </div>
+
+        <div class="nav-mobile" id="mobileNav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <div class="mobile-dropdown-group">
+            <div class="mobile-dropdown-label">Servicios</div>
+            <div class="mobile-dropdown-links">
+              <a href="italika.html">Italika</a>
+              <a href="bajaj.html">Bajaj</a>
+              <a href="vekal.html">Vekal</a>
+            </div>
+          </div>
+          <a class="active" href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-services">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-image"></div>
+            <div class="hero-copy-card">
+              <span class="section-kicker">Atención a Flotillas y Siniestros</span>
+              <h1 class="section-title">Motos Aseguradas</h1>
+              <p class="section-copy">
+                Formamos parte de la red de atención para unidades aseguradas. Realizamos la recepción, valuación, diagnóstico y reparaciones autorizadas bajo los estándares y procesos requeridos por las compañías de seguros.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="index.html#contacto">Agendar Revisión</a>
+                <a class="btn btn-secondary" href="https://wa.me/525616326547" target="_blank">Consultar por WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 20px;">
+        <div class="container">
+          <div class="split-grid">
+            <article class="warranty-card">
+              <span class="section-kicker">¿Cómo funciona?</span>
+              <h2 class="section-title" style="font-size: clamp(24px, 3vw, 36px);">Proceso de Atención</h2>
+              <p class="section-copy">
+                Seguimos un protocolo ordenado para gestionar la revisión e ingreso de unidades siniestradas o amparadas por pólizas corporativas:
+              </p>
+              <div class="steps-vertical">
+                <div class="step-row">
+                  <div class="step-num">1</div>
+                  <div class="step-content">
+                    <h3>Revisión inicial de la unidad</h3>
+                    <p>Inspeccionamos visualmente la motocicleta a su llegada al taller para documentar las condiciones de ingreso y daños visibles.</p>
+                  </div>
+                </div>
+                <div class="step-row">
+                  <div class="step-num">2</div>
+                  <div class="step-content">
+                    <h3>Validación de información y documentación</h3>
+                    <p>Verificamos que la unidad cuente con la documentación obligatoria requerida para iniciar el trámite ante la aseguradora.</p>
+                  </div>
+                </div>
+                <div class="step-row">
+                  <div class="step-num">3</div>
+                  <div class="step-content">
+                    <h3>Diagnóstico o seguimiento técnico</h3>
+                    <p>Realizamos un diagnóstico mecánico o valuación técnica de los daños ocurridos en la motocicleta, generando el reporte oficial.</p>
+                  </div>
+                </div>
+                <div class="step-row">
+                  <div class="step-num">4</div>
+                  <div class="step-content">
+                    <h3>Comunicación y siguientes pasos</h3>
+                    <p>Informamos al cliente y a la compañía de seguros sobre el dictamen para proceder con las reparaciones autorizadas.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <div>
+              <article class="warranty-card" style="margin-bottom: 24px;">
+                <span class="section-kicker">Trámite Obligatorio</span>
+                <h2 class="section-title" style="font-size: 24px;">Documentación Sugerida</h2>
+                <p class="section-copy">
+                  Para agilizar el ingreso y la valuación de tu unidad, te recomendamos presentar la siguiente documentación a la mano:
+                </p>
+                <div class="doc-list">
+                  <div class="doc-item">Identificación oficial vigente (INE o Pasaporte)</div>
+                  <div class="doc-item">Póliza de seguro o datos de la póliza vigente</div>
+                  <div class="doc-item">Número de siniestro (en caso de accidente reportado)</div>
+                  <div class="doc-item">Tarjeta de circulación de la unidad</div>
+                  <div class="doc-item">Información de contacto (teléfono y correo)</div>
+                </div>
+              </article>
+
+              <article class="warranty-card" style="border-color: rgba(227, 8, 8, 0.22); background: linear-gradient(180deg, rgba(38, 12, 12, 0.92), rgba(20, 8, 8, 0.94));">
+                <span class="section-kicker" style="color: #ff7f7f;">Aviso Importante</span>
+                <h2 class="section-title" style="font-size: 20px;">Cláusulas de Servicio</h2>
+                <p class="section-copy" style="font-size: 14px; line-height: 1.6; color: #fccbc5;">
+                  <strong>Sujeto a validación de la aseguradora:</strong> La atención, los tiempos y las autorizaciones de piezas o reparaciones pueden variar según el proceso interno, la documentación provista y las condiciones específicas de la póliza de cada compañía de seguros.
+                </p>
+                <p class="section-copy" style="font-size: 14px; line-height: 1.6; color: #fccbc5; margin-top: 10px;">
+                  El taller no emite autorizaciones directas de pago de cobertura, por lo que toda intervención correctiva depende del dictamen final del ajustador de tu seguro.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <span class="section-kicker">Resolvemos tus dudas</span>
+          <h2 class="section-title">Preguntas Frecuentes - Asegurados</h2>
+          <div class="faq-panel">
+            <article class="faq-item active">
+              <button class="faq-question">
+                <span>¿Qué aseguradoras atienden en su taller?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>Brindamos servicio a clientes de diversas aseguradoras. Dado que los convenios de red y procesos cambian constantemente, te sugerimos contactarnos con los datos de tu aseguradora para validar el estatus y orientarte sobre los pasos de ingreso.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>¿Cuánto tarda la aseguradora en autorizar la reparación?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>Una vez ingresada la unidad y enviada la valuación de daños, el tiempo de respuesta y aprobación de piezas depende al 100% de la compañía de seguros (normalmente oscila entre 3 a 10 días hábiles).</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>¿Qué pasa si mi moto es declarada pérdida total?</span>
+                <span class="faq-icon">＋</span>
+              </button>
+              <div class="faq-answer">
+                <p>En caso de que el costo de la reparación supere el porcentaje límite establecido en tu póliza, la aseguradora dictaminará pérdida total y te indicará directamente a ti la documentación requerida para tu indemnización.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© 2026 Vekal Motors. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="italika.html">Italika</a>
+          <a href="bajaj.html">Bajaj</a>
+          <a href="vekal.html">Vekal</a>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-question');
+        button.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach((faq) => faq.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>

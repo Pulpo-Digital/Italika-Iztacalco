@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicio Autorizado Italika y Bajaj en Iztacalco | Vekal Motors</title>
+    <meta name="description" content="Centro de Servicio Autorizado Italika y Bajaj en Iztacalco. Mantenimiento preventivo, diagnóstico y reparación profesional para motos particulares, flotillas y asegurados." />
+    <style>
+      :root {
+        --bg: #03070d;
+        --panel: #09111d;
+        --panel-2: #0c1726;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --text: #f4f8fc;
+        --muted: #9eb2c6;
+        --primary: #08a6e3;
+        --primary-2: #143a68;
+        --primary-3: #285aa1;
+        --success: #7fe3ff;
+        --radius: 22px;
+        --radius-sm: 16px;
+        --shadow: 0 18px 40px rgba(2, 12, 24, 0.45);
+        --container: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(8, 166, 227, 0.12), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(40, 90, 161, 0.1), transparent 35%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .section-title {
+        margin: 0 0 16px;
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 0.98;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .section-copy,
+      .muted {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(3, 7, 13, 0.84);
+        border-bottom: 1px solid rgba(8, 166, 227, 0.12);
+      }
+
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        height: 52px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      .brand-logo-italika {
+        max-height: 32px;
+        width: auto;
+        object-fit: contain;
+        border-left: 1px solid var(--stroke);
+        padding-left: 12px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .nav a {
+        color: rgba(255,255,255,0.86);
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        color: var(--primary);
+      }
+
+      /* Dropdown design */
+      .nav-item-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.2s ease;
+      }
+
+      .nav-item-dropdown:hover .dropdown-toggle,
+      .nav-item-dropdown.active .dropdown-toggle {
+        color: var(--primary);
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--panel-2);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-sm);
+        padding: 10px 0;
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        margin-top: 10px;
+      }
+
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent var(--panel-2) transparent;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text) !important;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: center;
+      }
+
+      .dropdown-menu a:hover,
+      .dropdown-menu a.active {
+        background: rgba(8, 166, 227, 0.1);
+        color: var(--primary) !important;
+      }
+
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .btn,
+      button {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #041018;
+        box-shadow: 0 12px 24px rgba(8, 166, 227, 0.25);
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: rgba(255,255,255,0.03);
+        border-color: rgba(255,255,255,0.12);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        border-color: rgba(8, 166, 227, 0.4);
+        color: var(--success);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-mobile {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: white;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(2,8,15,0.96) 0%, rgba(2,8,15,0.92) 38%, rgba(2,8,15,0.64) 62%, rgba(2,8,15,0.35) 100%),
+          url("assets/hero-inicio.avif") center/cover no-repeat;
+        opacity: 0.95;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        min-height: 760px;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 34px;
+        padding: 32px 0 64px;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: clamp(36px, 6vw, 78px);
+        line-height: 0.96;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 900;
+        max-width: 11ch;
+      }
+
+      .hero-copy {
+        max-width: 640px;
+        font-size: 18px;
+        color: #c5d4e2;
+        line-height: 1.8;
+        margin: 24px 0 34px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        align-items: stretch;
+        margin-top: 28px;
+        max-width: 1120px;
+      }
+
+      .card,
+      .info-card,
+      .faq-item,
+      .team-card,
+      .testimonial-card,
+      .contact-form,
+      .contact-aside,
+      .map-card,
+      .step-card,
+      .service-card {
+        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, rgba(12, 23, 38, 0.92), rgba(8, 13, 20, 0.94));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .hero-card h3,
+      .service-card h3,
+      .team-card h3,
+      .step-card h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-card p,
+      .service-card p,
+      .info-card p,
+      .step-card p,
+      .team-card p,
+      .testimonial-card p,
+      .contact-aside p,
+      .contact-form p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-card a,
+      .service-card a,
+      .step-card a {
+        display: inline-block;
+        margin-top: 14px;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .image-block,
+      .video-block {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+        min-height: 340px;
+      }
+
+      .image-block::before,
+      .video-block::before,
+      .service-image::before,
+      .testimonial-avatar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .image-block::after,
+      .video-block::after,
+      .service-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(3,7,13,0.18), rgba(3,7,13,0.7));
+      }
+
+      .image-block::before {
+        background-image: url("assets/motor-arreglo.JPG");
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .info-card {
+        padding: 26px;
+      }
+
+      .info-card .icon,
+      .step-number {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(8,166,227,0.12);
+        border: 1px solid rgba(8,166,227,0.22);
+        color: var(--primary);
+        font-weight: 900;
+      }
+
+      .info-card h3 {
+        margin: 16px 0 10px;
+        font-size: 18px;
+        line-height: 1.15;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .video-block {
+        min-height: 300px;
+      }
+
+      .video-block::before {
+        background-image: url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1400&q=80');
+      }
+
+      .play-button {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+      }
+
+      .play-button span {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(8,166,227,0.95);
+        color: #03131d;
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        box-shadow: 0 20px 30px rgba(8,166,227,0.3);
+      }
+
+      .steps-grid,
+      .services-grid,
+      .team-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .step-card {
+        padding: 24px;
+      }
+
+      .step-card h3 {
+        margin-top: 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 28px;
+      }
+
+      .service-card {
+        overflow: hidden;
+      }
+
+      .service-image {
+        position: relative;
+        height: 170px;
+      }
+
+      .service-card:nth-child(1) .service-image::before {
+        background-image: url("assets/inspeccion.JPG");
+      }
+
+      .service-card:nth-child(2) .service-image::before {
+        background-image: url("assets/diagnostico.JPG");
+      }
+
+      .service-card:nth-child(3) .service-image::before {
+        background-image: url("assets/mantenimiento.jpg");
+      }
+
+      .service-card:nth-child(4) .service-image::before {
+        background-image: url("assets/revision.JPG");
+      }
+
+      .service-body {
+        padding: 22px;
+      }
+
+      .visit-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .map-card {
+        padding: 26px;
+      }
+
+      .map-placeholder {
+        margin-top: 18px;
+        min-height: 270px;
+        border-radius: var(--radius-sm);
+        border: 1px dashed rgba(8,166,227,0.28);
+        background:
+          linear-gradient(180deg, rgba(8,166,227,0.06), rgba(8,166,227,0.02)),
+          #0b1320;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 12px;
+      }
+
+      .visit-meta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .meta-box {
+        padding: 18px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--stroke);
+        background: rgba(255,255,255,0.02);
+      }
+
+      .meta-label {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .meta-value {
+        margin-top: 8px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .faq-panel {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        overflow: hidden;
+      }
+
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 22px;
+        color: white;
+        background: transparent;
+      }
+
+      .faq-question span {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .faq-icon {
+        color: var(--primary);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+        padding: 0 22px;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 180px;
+        padding-bottom: 22px;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .team-testimonials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 20px;
+      }
+
+      .team-card {
+        padding: 22px;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        margin: 0 auto 16px;
+        background: linear-gradient(180deg, #2f3e52, #16202c);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .team-card p {
+        margin-top: 6px;
+        font-size: 14px;
+      }
+
+      .testimonial-card {
+        padding: 28px;
+      }
+
+      .testimonial-top {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .testimonial-avatar {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        overflow: hidden;
+        flex: 0 0 auto;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .testimonial-avatar::before {
+        background-image: url("assets/user.png");
+      }
+
+      .stars {
+        margin-top: 8px;
+        color: var(--primary);
+        letter-spacing: 0.2em;
+        font-size: 14px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 26px;
+      }
+
+      .contact-form,
+      .contact-aside {
+        padding: 28px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .field,
+      .textarea {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        color: white;
+        padding: 14px 16px;
+        font-size: 15px;
+        outline: none;
+      }
+
+      .field::placeholder,
+      .textarea::placeholder {
+        color: #7c8da0;
+      }
+
+      .textarea {
+        margin-top: 14px;
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .contact-aside {
+        display: flex;
+        align-items: center;
+        background:
+          linear-gradient(180deg, rgba(8,166,227,0.08), rgba(8,166,227,0.02)),
+          linear-gradient(180deg, rgba(12, 23, 38, 0.94), rgba(8, 13, 20, 0.96));
+      }
+
+      .site-footer {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 24px 0 36px;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 11px;
+      }
+
+      @media (max-width: 1100px) {
+        .hero-grid,
+        .features-grid,
+        .visit-grid,
+        .team-testimonials,
+        .contact-grid,
+        .steps-grid,
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid {
+          min-height: auto;
+        }
+
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav,
+        .header-actions .btn {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+
+        .nav-mobile {
+          display: none;
+          padding: 0 0 18px;
+        }
+
+        .nav-mobile.active {
+          display: grid;
+          gap: 8px;
+        }
+
+        .nav-mobile a {
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.03);
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        /* Mobile dropdown grouping */
+        .mobile-dropdown-group {
+          display: grid;
+          gap: 6px;
+          padding: 4px 0;
+        }
+
+        .mobile-dropdown-label {
+          padding: 10px 16px 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+          display: grid;
+          gap: 6px;
+          padding-left: 16px;
+        }
+
+        .mobile-dropdown-links a {
+          border-left: 2px solid var(--stroke) !important;
+          border-radius: 0 14px 14px 0 !important;
+        }
+
+        .hero-grid,
+        .features-grid,
+        .visit-grid,
+        .team-testimonials,
+        .contact-grid,
+        .steps-grid,
+        .services-grid,
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          max-width: 11ch;
+        }
+
+        .visit-meta,
+        .team-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .section {
+          padding: 56px 0;
+        }
+
+        .container {
+          width: min(var(--container), calc(100% - 20px));
+        }
+
+        .hero-grid {
+          padding: 52px 0 46px;
+        }
+
+        .hero-copy {
+          font-size: 16px;
+        }
+
+        .visit-meta,
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonial-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .brand-name {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-vekal.png" alt="Vekal Motors" class="brand-logo" />
+            <img src="assets/Italika-logo.png" alt="Servicio Autorizado Italika" class="brand-logo brand-logo-italika" />
+          </a>
+
+          <nav class="nav">
+            <a class="active" href="#inicio">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <div class="nav-item-dropdown">
+              <span class="nav-link dropdown-toggle">Servicios <span style="font-size: 8px;">▼</span></span>
+              <div class="dropdown-menu">
+                <a href="italika.html">Italika</a>
+                <a href="bajaj.html">Bajaj</a>
+                <a href="vekal.html">Vekal</a>
+              </div>
+            </div>
+            <a href="asegurados.html">Asegurados</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+
+          <div class="header-actions">
+            <a class="btn btn-primary" href="#contacto">Contáctanos</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+          </div>
+        </div>
+
+        <div class="nav-mobile" id="mobileNav">
+          <a href="#inicio">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <div class="mobile-dropdown-group">
+            <div class="mobile-dropdown-label">Servicios</div>
+            <div class="mobile-dropdown-links">
+              <a href="italika.html">Italika</a>
+              <a href="bajaj.html">Bajaj</a>
+              <a href="vekal.html">Vekal</a>
+            </div>
+          </div>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="pill-row">
+                <span class="pill">Tengo una motocicleta</span>
+                <span class="pill secondary">Tengo una flotilla</span>
+              </div>
+
+              <h1 class="hero-title">Servicio autorizado Italika y Bajaj en Iztacalco</h1>
+              <p class="hero-copy">
+                Mantenimiento, diagnóstico y reparación profesional para motos Italika, Bajaj, flotillas, unidades aseguradas y servicios complementarios multimarca.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#contacto">Agendar servicio</a>
+                <a class="btn btn-secondary" href="italika.html">Ver servicios autorizados</a>
+              </div>
+            </div>
+              <div class="hero-cards">
+                <article class="card hero-card">
+                  <h3>Servicio Italika</h3>
+                  <p>Mantenimiento preventivo oficial y reparaciones autorizadas para conservar tu garantía de fábrica.</p>
+                  <a href="italika.html">Ver detalles</a>
+                </article>
+                <article class="card hero-card">
+                  <h3>Servicio Bajaj</h3>
+                  <p>Soporte técnico especializado, diagnósticos precisos y refacciones originales para tu motocicleta Bajaj.</p>
+                  <a href="bajaj.html">Ver detalles</a>
+                </article>
+                <article class="card hero-card">
+                  <h3>Flotillas y Asegurados</h3>
+                  <p>Gestión de mantenimiento para flotas y recepción de motocicletas aseguradas bajo convenios oficiales.</p>
+                  <a href="asegurados.html">Ver detalles</a>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="nosotros">
+        <div class="container">
+          <div class="features-grid">
+            <div class="image-block"></div>
+
+            <div>
+              <span class="section-kicker">¿Por qué elegirnos?</span>
+              <h2 class="section-title">Compromiso, precisión y confianza en cada servicio.</h2>
+              <p class="section-copy">
+                Somos centro de servicio autorizado Italika y Bajaj en Iztacalco, con atención para motos particulares, flotillas, unidades aseguradas y servicios complementarios. Nuestro enfoque es brindarte procesos ordenados, comunicación clara y diagnósticos precisos.
+              </p>
+
+              <div class="why-grid">
+                <article class="info-card">
+                  <div class="icon">✦</div>
+                  <h3>Servicio especializado</h3>
+                  <p>Técnicos capacitados con experiencia en distintas marcas y modelos.</p>
+                </article>
+                <article class="info-card">
+                  <div class="icon">◎</div>
+                  <h3>Diagnóstico preciso</h3>
+                  <p>Detectamos la causa real del problema para ofrecer la mejor solución.</p>
+                </article>
+                <article class="info-card">
+                  <div class="icon">✓</div>
+                  <h3>Refacciones de las mejores marcas</h3>
+                  <p>Trabajamos con proveedores confiables para asegurar calidad y durabilidad.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <div class="video-block">
+            <div class="play-button"><span>▶</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicios" style="padding-top: 0;">
+        <div class="container">
+          <span class="section-kicker">Nuestro proceso de servicio</span>
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-number">1</div>
+              <h3>Inspección</h3>
+              <p>Revisamos cada sistema clave para detectar anomalías y necesidades.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-number">2</div>
+              <h3>Diagnóstico</h3>
+              <p>Identificamos con precisión la causa raíz del problema con equipo y experiencia.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-number">3</div>
+              <h3>Servicio especializado</h3>
+              <p>Ejecutamos la reparación o mantenimiento con calidad y refacciones adecuadas.</p>
+            </article>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-image"></div>
+              <div class="service-body">
+                <h3>Inspección preventiva</h3>
+                <p>Revisión completa de frenos, llantas, suspensión, sistema eléctrico y niveles.</p>
+                <a href="#contacto">Conoce más</a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-image"></div>
+              <div class="service-body">
+                <h3>Diagnóstico técnico</h3>
+                <p>Identificamos fallas mecánicas y eléctricas con herramientas profesionales.</p>
+                <a href="#contacto">Conoce más</a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-image"></div>
+              <div class="service-body">
+                <h3>Mantenimiento especializado</h3>
+                <p>Afinación, cambio de aceite, limpieza de inyectores y más.</p>
+                <a href="#contacto">Conoce más</a>
+              </div>
+            </article>
+            <article class="service-card">
+              <div class="service-image"></div>
+              <div class="service-body">
+                <h3>Revisión integral</h3>
+                <p>Evaluación completa para viajes largos o reingresos a operación.</p>
+                <a href="#contacto">Conoce más</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="visit-grid">
+            <article class="map-card">
+              <span class="section-kicker">Ven a visitarnos</span>
+              <h2 class="section-title">Estamos en Iztacalco</h2>
+              <p class="section-copy">
+                Calz. Sta. Anita 245, Nueva Sta Anita, Iztacalco, 08210 Ciudad de México, CDMX.
+              </p>
+              <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.316623424235!2d-99.13009939999999!3d19.398721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff9999508453%3A0xd85456c334012beb!2sItalika%20Iztacalco!5e0!3m2!1ses!2sch!4v1779545115529!5m2!1ses!2sch" width="1080" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="visit-meta">
+                <div class="meta-box">
+                  <div class="meta-label">Teléfono</div>
+                  <div class="meta-value">55-3906-2978</div>
+                </div>
+                <div class="meta-box">
+                  <div class="meta-label">WhatsApp</div>
+                  <div class="meta-value">56-1632-6547</div>
+                </div>
+              </div>
+            </article>
+
+            <div>
+              <span class="section-kicker">Preguntas frecuentes</span>
+              <h2 class="section-title">Resolvemos tus dudas</h2>
+              <div class="faq-panel">
+                <article class="faq-item active">
+                  <button class="faq-question">
+                    <span>¿Necesito hacer cita previa?</span>
+                    <span class="faq-icon">＋</span>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Te recomendamos agendar para atenderte con mayor orden y reducir tiempos de espera, aunque también podemos orientarte si necesitas atención inmediata.</p>
+                  </div>
+                </article>
+                <article class="faq-item">
+                  <button class="faq-question">
+                    <span>¿Cuánto tiempo tarda el servicio?</span>
+                    <span class="faq-icon">＋</span>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Depende del tipo de mantenimiento o reparación. Después de revisar tu motocicleta te compartimos el tiempo estimado con claridad.</p>
+                  </div>
+                </article>
+                <article class="faq-item">
+                  <button class="faq-question">
+                    <span>¿Me explican qué tiene mi moto?</span>
+                    <span class="faq-icon">＋</span>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Sí. Nuestro proceso contempla diagnóstico claro y explicación técnica antes de realizar cualquier intervención.</p>
+                  </div>
+                </article>
+                <article class="faq-item">
+                  <button class="faq-question">
+                    <span>¿Trabajan con buenas refacciones?</span>
+                    <span class="faq-icon">＋</span>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Buscamos componentes confiables y te orientamos sobre la mejor opción para tu unidad y para el servicio que necesita.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="team-testimonials">
+          <article class="testimonial-card" style="max-width: 900px; margin: 0 auto;">
+            <span class="section-kicker">Testimonios de clientes</span>
+            <div class="testimonial-top">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <h2 class="section-title" style="font-size: clamp(26px, 3vw, 36px); margin-bottom: 0;">Miguel Blanco</h2>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+            <p style="margin-top: 22px;">
+              “Excelente servicio de parte de lolita y todo el personal”
+            </p>
+          </article>
+        </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto" style="padding-top: 0;">
+        <div class="container">
+          <div class="contact-grid">
+            <form class="contact-form">
+              <span class="section-kicker">Envíanos un mensaje</span>
+              <h2 class="section-title">Agenda tu visita</h2>
+              <p class="section-copy" style="margin-bottom: 18px;">
+                Cuéntanos qué necesita tu motocicleta o tu flotilla y te orientamos sobre el mejor siguiente paso.
+              </p>
+              <div class="form-grid">
+                <input class="field" type="text" placeholder="Nombre" />
+                <input class="field" type="tel" placeholder="Teléfono" />
+                <input class="field" type="email" placeholder="Correo" />
+                <input class="field" type="text" placeholder="Servicio que necesitas" />
+              </div>
+              <textarea class="textarea" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
+              <button class="btn btn-primary" type="submit" style="margin-top: 16px;">Enviar mensaje</button>
+            </form>
+
+            <aside class="contact-aside">
+              <div>
+                <span class="section-kicker">Ven a visitarnos sin compromiso</span>
+                <h2 class="section-title">Atención clara y profesional</h2>
+                <p>
+                  Agenda una revisión y te orientamos con claridad sobre el mejor siguiente paso para tu motocicleta o tu flotilla.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© 2026 Vekal Motors. Todos los derechos reservados.</div>
+        <div class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="italika.html">Italika</a>
+          <a href="bajaj.html">Bajaj</a>
+          <a href="vekal.html">Vekal</a>
+          <a href="asegurados.html">Asegurados</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-question');
+        button.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach((faq) => faq.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>
