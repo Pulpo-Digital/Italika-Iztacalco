@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "italika-iztacalco",
+  "name": "vekal-motors",
   "compatibility_date": "2026-07-30",
   "assets": {
     "directory": "./public"
