@@ -24,7 +24,7 @@
       }
 
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      html { scroll-behavior: smooth; overflow-x: clip; }
       body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -418,6 +418,9 @@
           display: inline-grid;
           place-items: center;
         }
+        .header-row { gap: 12px; }
+        .brand-logo { height: 42px; }
+        .brand-logo-italika { max-height: 26px; }
         .nav-mobile.active {
           display: grid;
           gap: 8px;
@@ -466,6 +469,7 @@
         .container { width: min(var(--container), calc(100% - 20px)); }
         .section { padding: 56px 0; }
         .hero-services { padding: 34px 0 24px; }
+        .contact-card { padding: 20px; }
       }
     </style>
   </head>

@@ -29,6 +29,7 @@
 
       html {
         scroll-behavior: smooth;
+        overflow-x: clip;
       }
 
       body {
@@ -544,6 +545,18 @@
           place-items: center;
         }
 
+        .header-row {
+          gap: 12px;
+        }
+
+        .brand-logo {
+          height: 42px;
+        }
+
+        .brand-logo-italika {
+          max-height: 26px;
+        }
+
         .nav-mobile {
           display: none;
           padding: 0 0 18px;
@@ -608,6 +621,12 @@
 
         .hero-services {
           padding: 34px 0 24px;
+        }
+
+        .hero-copy-card,
+        .warranty-card,
+        .card {
+          padding: 20px;
         }
       }
     </style>
