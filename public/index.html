@@ -681,8 +681,12 @@
 
       .team-testimonials {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 26px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .testimonials-intro {
+        margin-bottom: 28px;
       }
 
       .team-grid {
@@ -710,20 +714,21 @@
       }
 
       .testimonial-card {
-        padding: 28px;
+        padding: 26px;
+        min-width: 0;
       }
 
       .testimonial-top {
         display: flex;
         align-items: center;
-        gap: 18px;
+        gap: 16px;
       }
 
       .testimonial-avatar {
         position: relative;
-        width: 96px;
-        height: 96px;
-        border-radius: 22px;
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
         overflow: hidden;
         flex: 0 0 auto;
         border: 1px solid rgba(255,255,255,0.08);
@@ -733,11 +738,38 @@
         background-image: url("assets/user.png");
       }
 
+      .testimonial-name {
+        margin: 0;
+        font-size: clamp(16px, 2vw, 20px);
+        line-height: 1.2;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
       .stars {
         margin-top: 8px;
         color: var(--primary);
         letter-spacing: 0.2em;
         font-size: 14px;
+      }
+
+      .testimonial-text {
+        margin: 18px 0 0;
+      }
+
+      .testimonial-source {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .testimonial-source:hover {
+        color: var(--primary);
       }
 
       .contact-grid {
@@ -973,7 +1005,8 @@
         .contact-aside,
         .hero-card,
         .info-card,
-        .step-card {
+        .step-card,
+        .testimonial-card {
           padding: 18px;
         }
       }
@@ -1235,21 +1268,66 @@
 
       <section class="section">
         <div class="container">
+          <div class="testimonials-intro">
+            <span class="section-kicker">Opiniones de Google</span>
+            <h2 class="section-title">Testimonios de clientes</h2>
+          </div>
           <div class="team-testimonials">
-          <article class="testimonial-card" style="max-width: 900px; margin: 0 auto;">
-            <span class="section-kicker">Testimonios de clientes</span>
-            <div class="testimonial-top">
-              <div class="testimonial-avatar"></div>
-              <div>
-                <h2 class="section-title" style="font-size: clamp(26px, 3vw, 36px); margin-bottom: 0;">Miguel Blanco</h2>
-                <div class="stars">★★★★★</div>
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="testimonial-avatar"></div>
+                <div>
+                  <h3 class="testimonial-name">More Lopez</h3>
+                  <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                </div>
               </div>
-            </div>
-            <p style="margin-top: 22px;">
-              “Excelente servicio de parte de lolita y todo el personal”
-            </p>
-          </article>
-        </div>
+              <p class="testimonial-text">“Excelente trabajo te atienden bien honestos trabajadores”</p>
+              <a class="testimonial-source" href="https://share.google/nl4GrLcMkZQZS2WUf" target="_blank" rel="noopener noreferrer">Opinión de Google</a>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="testimonial-avatar"></div>
+                <div>
+                  <h3 class="testimonial-name">Jose Aguilar</h3>
+                  <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                </div>
+              </div>
+              <p class="testimonial-text">“Un exelente servicio atiende bien amables. Excelente trabajo en la mecánica”</p>
+              <a class="testimonial-source" href="https://share.google/2I7IqWYCoRW8dVNMt" target="_blank" rel="noopener noreferrer">Opinión de Google</a>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="testimonial-avatar"></div>
+                <div>
+                  <h3 class="testimonial-name">Daniel Lopez</h3>
+                  <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                </div>
+              </div>
+              <p class="testimonial-text">“El personal siempre es muy amable y atento en todo momento. Se nota la experiencia y el compromiso con el cliente. Muy buena atención, me explicaron todo claramente antes de hacer el trabajo. Sin duda es un taller confiable al que siempre llevo la moto y que recomendaría a cualquier persona que quiera dejar su moto en buenas manos.”</p>
+              <a class="testimonial-source" href="https://share.google/sEn5Us4iv6qAHPKkz" target="_blank" rel="noopener noreferrer">Opinión de Google</a>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="testimonial-avatar"></div>
+                <div>
+                  <h3 class="testimonial-name">César Velázquez</h3>
+                  <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                </div>
+              </div>
+              <p class="testimonial-text">“Excelente servicio... Muy profesionales. Siempre dejan las motos en excelente estado y súper funcionales. Los vendedores de refacciones muy amables y atentos. Mis respetos para este taller.”</p>
+              <a class="testimonial-source" href="https://share.google/w4XfVUiuIezBKwFDL" target="_blank" rel="noopener noreferrer">Opinión de Google</a>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="testimonial-avatar"></div>
+                <div>
+                  <h3 class="testimonial-name">Miguel Blanco</h3>
+                  <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                </div>
+              </div>
+              <p class="testimonial-text">“Excelente servicio de parte de lolita y todo el personal”</p>
+            </article>
+          </div>
         </div>
       </section>
 
