@@ -48,7 +48,8 @@
       }
 
       img,
-      iframe {
+      iframe,
+      video {
         max-width: 100%;
         display: block;
       }
@@ -414,8 +415,7 @@
         align-items: stretch;
       }
 
-      .image-block,
-      .video-block {
+      .image-block {
         position: relative;
         overflow: hidden;
         border-radius: var(--radius);
@@ -425,7 +425,6 @@
       }
 
       .image-block::before,
-      .video-block::before,
       .service-image::before,
       .testimonial-avatar::before {
         content: "";
@@ -436,7 +435,6 @@
       }
 
       .image-block::after,
-      .video-block::after,
       .service-image::after {
         content: "";
         position: absolute;
@@ -480,32 +478,85 @@
         letter-spacing: 0.08em;
       }
 
-      .video-block {
-        min-height: 300px;
+      .promo-video {
+        display: flex;
+        justify-content: center;
       }
 
-      .video-block::before {
-        background-image: url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1400&q=80');
+      .promo-video-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
       }
 
-      .play-button {
+      .promo-video-frame.is-vertical {
+        display: none;
+        width: min(380px, 100%);
+        aspect-ratio: 9 / 16;
+      }
+
+      .promo-video-player {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #000;
+        border-radius: var(--radius);
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+      }
+
+      .promo-video-play {
         position: absolute;
         inset: 0;
         z-index: 1;
         display: grid;
         place-items: center;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: var(--radius);
+        background: transparent;
+        cursor: pointer;
       }
 
-      .play-button span {
+      .promo-video-play span {
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background: rgba(8,166,227,0.95);
+        background: rgba(8, 166, 227, 0.95);
         color: #03131d;
         display: grid;
         place-items: center;
         font-size: 28px;
-        box-shadow: 0 20px 30px rgba(8,166,227,0.3);
+        padding-left: 4px;
+        box-shadow: 0 20px 30px rgba(8, 166, 227, 0.3);
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .promo-video-play:hover span,
+      .promo-video-play:focus-visible span {
+        transform: scale(1.06);
+        background: var(--primary);
+      }
+
+      .promo-video-frame.is-playing .promo-video-play {
+        display: none;
+      }
+
+      @media (max-width: 767px) {
+        .promo-video-frame.is-horizontal {
+          display: none;
+        }
+
+        .promo-video-frame.is-vertical {
+          display: block;
+        }
+
+        .promo-video-play span {
+          width: 76px;
+          height: 76px;
+          font-size: 24px;
+        }
       }
 
       .steps-grid,
@@ -1329,10 +1380,41 @@
         </div>
       </section>
 
-      <section class="section" style="padding-top: 0;">
+      <section class="section" style="padding-top: 0;" aria-label="Video de Vekal Motors Italika">
         <div class="container">
-          <div class="video-block">
-            <div class="play-button"><span>▶</span></div>
+          <div class="promo-video">
+            <div class="promo-video-frame is-horizontal">
+              <video
+                class="promo-video-player"
+                controls
+                playsinline
+                preload="none"
+                poster="assets/gallery/videos/vekal_motors-italika-horizontal.jpg"
+                data-src="assets/gallery/videos/vekal_motors-italika-horizontal-web.mp4"
+                title="Video de Vekal Motors, centro de servicio Italika"
+              >
+                Tu navegador no puede reproducir este video.
+              </video>
+              <button class="promo-video-play" type="button" aria-label="Reproducir video">
+                <span aria-hidden="true">▶</span>
+              </button>
+            </div>
+            <div class="promo-video-frame is-vertical">
+              <video
+                class="promo-video-player"
+                controls
+                playsinline
+                preload="none"
+                poster="assets/gallery/videos/vekal_motors-Italika_vertical.jpg"
+                data-src="assets/gallery/videos/vekal_motors-Italika_vertical-web.mp4"
+                title="Video de Vekal Motors, centro de servicio Italika"
+              >
+                Tu navegador no puede reproducir este video.
+              </video>
+              <button class="promo-video-play" type="button" aria-label="Reproducir video">
+                <span aria-hidden="true">▶</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -1740,6 +1822,66 @@
         menuToggle.addEventListener('click', () => {
           mobileNav.classList.toggle('active');
         });
+      }
+
+      const promoVideo = document.querySelector('.promo-video');
+      if (promoVideo) {
+        const promoQuery = window.matchMedia('(max-width: 767px)');
+        const horizontalFrame = promoVideo.querySelector('.promo-video-frame.is-horizontal');
+        const verticalFrame = promoVideo.querySelector('.promo-video-frame.is-vertical');
+        const horizontalVideo = horizontalFrame ? horizontalFrame.querySelector('video') : null;
+        const verticalVideo = verticalFrame ? verticalFrame.querySelector('video') : null;
+
+        const activatePromoVideo = (player) => {
+          if (!player || player.getAttribute('src')) return;
+          player.src = player.dataset.src;
+        };
+
+        const deactivatePromoVideo = (player) => {
+          if (!player || !player.getAttribute('src')) return;
+          player.pause();
+          player.removeAttribute('src');
+          player.load();
+        };
+
+        const bindPromoFrame = (frame) => {
+          if (!frame) return;
+          const player = frame.querySelector('video');
+          const playButton = frame.querySelector('.promo-video-play');
+          if (!player || !playButton) return;
+
+          playButton.addEventListener('click', () => {
+            activatePromoVideo(player);
+            player.play().catch(() => {});
+          });
+
+          player.addEventListener('play', () => frame.classList.add('is-playing'));
+          player.addEventListener('pause', () => frame.classList.remove('is-playing'));
+          player.addEventListener('ended', () => frame.classList.remove('is-playing'));
+        };
+
+        const syncPromoVideo = () => {
+          if (promoQuery.matches) {
+            deactivatePromoVideo(horizontalVideo);
+            if (horizontalFrame) horizontalFrame.classList.remove('is-playing');
+            activatePromoVideo(verticalVideo);
+          } else {
+            deactivatePromoVideo(verticalVideo);
+            if (verticalFrame) verticalFrame.classList.remove('is-playing');
+            activatePromoVideo(horizontalVideo);
+          }
+        };
+
+        bindPromoFrame(horizontalFrame);
+        bindPromoFrame(verticalFrame);
+
+        if (promoQuery.addEventListener) {
+          promoQuery.addEventListener('change', syncPromoVideo);
+        } else {
+          promoQuery.addListener(syncPromoVideo);
+        }
+
+        syncPromoVideo();
       }
 
 
